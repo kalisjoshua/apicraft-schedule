@@ -230,6 +230,11 @@ hr {
   background: url('../images/bg_hr.png') repeat-x center;
 }
 
+small {
+  color: #999999;
+  font-size: .7em;
+}
+
 table {
   border: 1px solid #373737;
   margin-bottom: 20px;
