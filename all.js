@@ -30,20 +30,16 @@ $.fn.ready(function ($) {
     var todays_events;
 
     todays_events = res.agenda
-      .reduce(function (acc, item) {
-        if (~item.end.indexOf(TODAYSDAYNAMELONG)) {
-          item.detail = item.start
-            .replace(YEAR, YEAR + '<br />');
+      .map(function (item) {
+        item.detail = item.start
+          .replace(YEAR, YEAR + '<br />');
 
-          item.detail += ' - ' + item.end
-            .split(' ')
-            .slice(-2)
-            .join(' ');
+        item.detail += ' - ' + item.end
+          .split(' ')
+          .slice(-2)
+          .join(' ');
 
-          acc.push(item);
-        }
-
-        return acc;
+        return item;
       }, []);
 
     $('article')
